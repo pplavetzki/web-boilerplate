@@ -1,4 +1,4 @@
-#Moder Web Application Boilerplate
+#Modern Web Application Boilerplate
 
 This is a simple boilerplate that uses AngularJS, Gulp and Browserify to create clean, concise code with a
 modular approach to develop modern web applications.
