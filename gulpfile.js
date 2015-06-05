@@ -213,7 +213,7 @@ gulp.task('static', ['images', 'views', 'styles', 'seed-data'], function(){});
 
 gulp.task('process', ['browserify', 'static'], function(){});
 
-gulp.task('build', ['process'], function(){});
+gulp.task('build', ['vet', 'process'], function(){});
 
 gulp.task('serve', ['process'], function(){
     "use strict";

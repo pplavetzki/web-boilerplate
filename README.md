@@ -15,7 +15,6 @@ Keep in mind that this is a work in progress!
 
 1.  Better documentation
 2.  Unit test framework and integration
-3.  Linting
 
 ##Check Out These Resources
 
