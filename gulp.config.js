@@ -32,8 +32,12 @@ module.exports = function() {
         ],
         nodeServer: './server/index.js',
         defaultPort: 4343,
-        server:'./server/'
+        server:'./server/',
+        alljs: [
+            './*.js',
+            './client/public/app/**/*.js'
+        ]
     };
 
     return config;
-}
+};

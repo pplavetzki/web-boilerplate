@@ -15,6 +15,6 @@ function Dashboard ($state) {
     vm.gotoAnalysis = function() {
         $state.go('app.workflow');
     };
-};
+}
 
 dashboardModule.controller('Dashboard', Dashboard);

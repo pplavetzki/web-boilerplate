@@ -5,7 +5,10 @@
 
 var coreModule = require('./index');
 
-routeHelperProvider.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider'];
+routeHelperProvider.$inject = ['$locationProvider',
+                               '$stateProvider',
+                               '$urlRouterProvider',
+                               '$urlMatcherFactoryProvider'];
 
 function routeHelperProvider($locationProvider, $stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
     /* jshint validthis:true */

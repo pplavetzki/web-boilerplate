@@ -7,7 +7,7 @@ var servicesModule = require('./index');
 
 var commonDataService = commonDataService;
 
-commonDataService.$inject = ['$http']
+commonDataService.$inject = ['$http'];
 
 function commonDataService($http){
 

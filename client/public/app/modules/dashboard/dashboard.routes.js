@@ -26,7 +26,7 @@ function getStates() {
 onRun.$inject = ['routeHelper'];
 function onRun(routeHelper){
     routeHelper.configureStates(getStates());
-};
+}
 
 dashboardModule
     .run(onRun);

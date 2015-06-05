@@ -7,9 +7,9 @@ var layoutModule = require('./index');
 
 var Shell = Shell;
 
-Shell.$inject = ['$rootScope', '$timeout', '$window', '$state'];
+Shell.$inject = ['$timeout', '$window', '$state'];
 
-function Shell($rootScope, $timeout, $window, $state) {
+function Shell($timeout, $window, $state) {
     var vm = this;
 
     vm.logout = logout;
@@ -22,11 +22,11 @@ function Shell($rootScope, $timeout, $window, $state) {
 
     function logout(){
         $window.sessionStorage.token = null;
-        $state.go('login')
-    };
+        $state.go('login');
+    }
 
     activate();
 
-};
+}
 
 layoutModule.controller('Shell', Shell);

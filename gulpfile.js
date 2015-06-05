@@ -22,6 +22,7 @@ var reload      = browserSync.reload;
 var util = require('gulp-util');
 var minifyCss = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
+var jshint = require('gulp-jshint');
 
 var sftp = require('gulp-sftp');
 
@@ -38,9 +39,18 @@ var ugly = function(){
     }
 };
 
+gulp.task('vet', function(){
+    "use strict";
+    return gulp.src(config.alljs)
+        .pipe(plumber())
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish', {verbose: true}))
+        .pipe(jshint.reporter('fail'));
+});
+
 // Browserify task
 gulp.task('browserify', function () {
-
+    'use strict';
     return gulp.src([config.codeAppFile])
         .pipe(plumber())
         .pipe(browserify({
@@ -49,9 +59,10 @@ gulp.task('browserify', function () {
         }))
         // Bundle to a single file
         .pipe(concat('bundle.js'))
+        /*jshint camelcase: false */
         .pipe(gulpif(ugly(), uglify({compress:{drop_console:true}})))
         // Output it to our dist folder
-        .pipe(gulp.dest(config.clientApp))
+        .pipe(gulp.dest(config.clientApp));
 });
 
 gulp.task('views1', [], function () {
@@ -80,7 +91,7 @@ gulp.task('asset1', [], function(){
 gulp.task('asset2', [], function(){
     "use strict";
     return gulp.src(['./client/public/vendor/**/*'])
-        .pipe(gulp.dest(config.vendorDest))
+        .pipe(gulp.dest(config.vendorDest));
 });
 
 gulp.task('images', [], function(){
@@ -126,6 +137,7 @@ function getNodeOptions(){
 }
 
 function startBrowserSync(isDev, specRunner) {
+    'use strict';
     if (browserSync.active) {
         return;
     }
@@ -134,7 +146,7 @@ function startBrowserSync(isDev, specRunner) {
 
     var options = {
         proxy: 'localhost:' + port,
-        port: 9090,
+        port: 9095,
         ghostMode: { // these are the defaults t,f,t,t
             clicks: true,
             location: false,
@@ -144,7 +156,7 @@ function startBrowserSync(isDev, specRunner) {
         injectChanges: true,
         logFileChanges: true,
         logLevel: 'debug',
-        logPrefix: 'epic-sciences',
+        logPrefix: 'web-boilerplate',
         //browser: 'google chrome',
         notify: true,
         reloadOnRestart: true,
@@ -155,6 +167,7 @@ function startBrowserSync(isDev, specRunner) {
 }
 
 function log(msg) {
+    'use strict';
     if (typeof(msg) === 'object') {
         for (var item in msg) {
             if (msg.hasOwnProperty(item)) {
@@ -167,6 +180,7 @@ function log(msg) {
 }
 
 function serve() {
+    'use strict';
     log('starting to serve');
 
     var nodeOptions = getNodeOptions();

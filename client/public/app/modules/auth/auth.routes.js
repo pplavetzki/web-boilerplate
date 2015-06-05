@@ -29,7 +29,7 @@ function getStates() {
 onRun.$inject = ['routeHelper'];
 function onRun(routeHelper){
     routeHelper.configureStates(getStates());
-};
+}
 
 authModule
     .run(onRun);

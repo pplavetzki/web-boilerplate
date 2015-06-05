@@ -25,7 +25,7 @@ onRun.$inject = ['routeHelper'];
 function onRun(routeHelper){
     var otherwise = '/404';
     routeHelper.configureStates(getStates(), otherwise);
-};
+}
 
 coreModule
     .run(onRun);
